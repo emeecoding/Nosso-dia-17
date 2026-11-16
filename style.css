@@ -1,0 +1,881 @@
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dock-bg: rgba(25, 25, 25, 0.5);
+  --window-bg: rgba(32, 32, 32, 0.9);
+  --window-header: #f27f82;
+  --accent: #f27f82;
+  --text: #ffffff;
+  --border: rgba(255, 255, 255, 0.15);
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+
+  height: 100vh;
+
+  overflow-x: hidden;
+
+  background: url("assets/wallpaper1.png") center center;
+  background-size: cover;
+
+  color: white;
+}
+
+/* BOOT */
+
+#boot {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: black;
+
+  z-index: 99999;
+}
+
+#boot h1 {
+  font-size: 4rem;
+
+  color: #f27f82;
+}
+
+#boot p {
+  margin-top: 20px;
+
+  opacity: 0.8;
+}
+
+/* BARRA SUPERIOR */
+
+.topbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
+
+  background: rgba(20, 20, 20, 0.5);
+
+  backdrop-filter: blur(20px);
+
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-weight: bold;
+
+  color: white;
+}
+
+.center {
+  font-size: 14px;
+
+  color: #eee;
+}
+
+.right {
+  font-size: 14px;
+}
+
+/* DESKTOP */
+
+.desktop {
+  width: 100%;
+  height: 100vh;
+}
+
+/* DOCK UBUNTU */
+
+.dock {
+  position: fixed;
+
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 18px;
+
+  background: rgba(25, 25, 25, 0.55);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  z-index: 5000;
+}
+
+.dock-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 30px;
+
+  cursor: pointer;
+
+  border-radius: 15px;
+
+  position: relative;
+
+  transition: all 0.25s ease;
+}
+
+.dock-icon:hover {
+  transform: translateY(-10px) scale(1.4);
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dock-icon::after {
+  content: attr(data-name);
+
+  position: absolute;
+
+  bottom: 80px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #181818;
+
+  color: white;
+
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  white-space: nowrap;
+
+  font-size: 13px;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: 0.25s;
+}
+.dock:hover .dock-icon {
+  transform: scale(1);
+}
+
+.dock-icon:hover {
+  z-index: 20;
+}
+
+.dock-icon:hover + .dock-icon {
+  transform: scale(1.1);
+}
+
+.dock-icon:has(+ .dock-icon:hover) {
+  transform: scale(1.1);
+}
+
+.dock-icon:hover::after {
+  opacity: 1;
+}
+
+.dock-icon:active {
+  transform: scale(1.05);
+}
+
+/* TASKBAR */
+
+.taskbar {
+  position: fixed;
+
+  bottom: 15px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 400px;
+
+  height: 55px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  background: rgba(20, 20, 20, 0.7);
+
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  z-index: 999;
+}
+
+#startButton {
+  border: none;
+
+  background: none;
+
+  color: white;
+
+  font-size: 30px;
+
+  margin-left: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+#startButton:hover {
+  transform: scale(1.2);
+}
+
+/* MENU INICIAR */
+
+#start-menu {
+  position: fixed;
+
+  left: 30px;
+
+  bottom: 85px;
+
+  width: 320px;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  display: none;
+
+  background: rgba(25, 25, 25, 0.95);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+
+  z-index: 2000;
+}
+
+.user-card {
+  padding: 25px;
+
+  background: #f27f82;
+
+  font-weight: bold;
+
+  font-size: 18px;
+}
+
+.menu-item {
+  padding: 18px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* JANELAS */
+
+.window {
+  display: none;
+
+  position: absolute;
+
+  top: 100px;
+
+  left: 180px;
+
+  width: 800px;
+
+  height: 500px;
+
+  background: var(--window-bg);
+
+  backdrop-filter: blur(25px);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  resize: both;
+
+  min-width: 400px;
+
+  min-height: 250px;
+}
+
+.window.active {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* CABEÇALHO */
+
+.titlebar {
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 15px;
+
+  background: var(--window-header);
+
+  cursor: move;
+}
+
+.titlebar span {
+  font-weight: 600;
+}
+
+/* BOTÕES */
+
+.actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+.actions button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.actions button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* CONTEUDO */
+
+.content {
+  padding: 25px;
+
+  height: calc(100% - 55px);
+
+  overflow: auto;
+
+  color: white;
+}
+
+/* GALERIA */
+
+.gallery {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+}
+
+.gallery img {
+  width: 220px;
+
+  height: 160px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  transition: 0.3s;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+#imageModal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.52);
+
+  backdrop-filter: blur(10px);
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+}
+
+.modal-container {
+  position: relative;
+
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modalImage {
+  max-width: 90%;
+  max-height: 90%;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.15);
+
+  animation: instagramOpen 0.25s ease;
+}
+
+@keyframes instagramOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#prevPhoto,
+#nextPhoto {
+  width: 60px;
+  height: 60px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#prevPhoto:hover,
+#nextPhoto:hover {
+  background: rgba(255, 255, 255, 0.2);
+
+  transform: scale(1.1);
+}
+
+#photoCounter {
+  position: absolute;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: white;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  padding: 10px 18px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+}
+
+/* TERMINAL */
+
+.terminal-window {
+  background: #0e0e0e;
+}
+
+.terminal-content {
+  height: 100%;
+
+  padding: 20px;
+
+  color: #00ff99;
+
+  font-family: Consolas, monospace;
+}
+
+#terminalOutput {
+  height: 80%;
+
+  overflow-y: auto;
+
+  font-size: 12px;
+}
+
+#terminalInput {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 12px;
+
+  background: #111;
+
+  border: none;
+
+  color: #00ff99;
+
+  font-family: Consolas, monospace;
+}
+
+#terminalInput:focus {
+  outline: none;
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f27f82;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ANIMAÇÕES */
+
+.window {
+  animation: windowOpen 0.25s ease;
+}
+
+@keyframes windowOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVO */
+
+/* =====================================
+   RESPONSIVO TABLET E CELULAR
+===================================== */
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  .topbar {
+    height: 50px;
+    padding: 0 12px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .center {
+    display: none;
+  }
+
+  .right {
+    font-size: 12px;
+  }
+
+  /* MENU */
+
+  #start-menu {
+    width: calc(100vw - 20px);
+
+    height: auto;
+
+    max-height: 70vh;
+
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 80px;
+
+    overflow-y: auto;
+
+    border-radius: 20px;
+  }
+
+  .user-card {
+    padding: 18px;
+
+    font-size: 16px;
+  }
+
+  .menu-item {
+    padding: 16px;
+
+    font-size: 15px;
+  }
+
+  /* DOCK */
+
+  .dock {
+    width: 95%;
+
+    bottom: 10px;
+
+    gap: 4px;
+
+    padding: 8px;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    justify-content: flex-start;
+  }
+
+  .dock::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dock-icon {
+    min-width: 50px;
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 22px;
+  }
+
+  .dock-icon:hover {
+    transform: scale(1.15);
+  }
+
+  .dock-icon::after {
+    display: none;
+  }
+
+  /* JANELAS */
+
+  .window {
+    width: 95vw !important;
+
+    height: calc(100vh - 130px) !important;
+
+    left: 2.5vw !important;
+
+    top: 60px !important;
+
+    resize: none;
+
+    border-radius: 15px;
+
+    min-width: unset;
+
+    min-height: unset;
+  }
+
+  .titlebar {
+    height: 50px;
+
+    padding: 0 10px;
+  }
+
+  .titlebar span {
+    font-size: 14px;
+  }
+
+  .actions button {
+    width: 28px;
+
+    height: 28px;
+
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 15px;
+
+    font-size: 14px;
+  }
+
+  .file-path {
+    height: 40px;
+
+    font-size: 11px;
+
+    padding: 0 10px;
+  }
+
+  /* PASTAS */
+
+  .explorer-content {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .folder {
+    padding: 10px;
+  }
+
+  .folder-icon {
+    font-size: 48px;
+  }
+
+  .folder-name {
+    font-size: 12px;
+  }
+
+  /* GALERIA */
+
+  .gallery {
+    gap: 10px;
+  }
+
+  .gallery img {
+    width: 140px;
+
+    height: 110px;
+  }
+
+  /* TERMINAL */
+
+  #terminalOutput {
+    font-size: 11px;
+  }
+
+  #terminalInput {
+    font-size: 14px;
+  }
+
+  /* MODAL */
+
+  #modalImage {
+    max-width: 95%;
+
+    max-height: 75%;
+  }
+
+  #prevPhoto,
+  #nextPhoto {
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 20px;
+  }
+
+  #closeModal {
+    top: 12px;
+
+    right: 15px;
+
+    font-size: 26px;
+  }
+}
+
+/* =====================================
+   CELULAR PEQUENO
+===================================== */
+
+@media screen and (max-width: 480px) {
+  .gallery img {
+    width: 120px;
+
+    height: 95px;
+  }
+
+  .folder-icon {
+    font-size: 42px;
+  }
+
+  .folder-name {
+    font-size: 11px;
+  }
+
+  .topbar {
+    font-size: 12px;
+  }
+
+  .window {
+    top: 50px !important;
+
+    height: calc(100vh - 115px) !important;
+  }
+
+  #start-menu {
+    width: 100vw;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    border-radius: 20px 20px 0 0;
+
+    max-height: 75vh;
+  }
+}

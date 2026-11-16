@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoveOS ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="imageModal">
+
+        <span id="closeModal">✕</span>
+
+        <button id="prevPhoto">❮</button>
+
+        <div class="modal-container">
+            <img id="modalImage">
+            <div id="photoCounter"></div>
+        </div>
+
+        <button id="nextPhoto">❯</button>
+
+    </div>
+
+    <div id="boot">
+        <h1>❤️ LoveOS</h1>
+        <p>Carregando memórias...</p>
+    </div>
+
+    <header class="topbar">
+
+        <div class="logo">
+            ❤️ LoveOS
+        </div>
+
+        <div class="center">
+
+            <span id="relationship-time">
+                Juntos para sempre ❤️
+            </span>
+
+        </div>
+
+        <div class="right">
+
+            <span id="clock"></span>
+
+        </div>
+
+    </header>
+
+    <aside class="dock">
+
+        <div class="dock-icon" data-name="Arquivos" onclick="openWindow('explorer')">
+            📁
+        </div>
+
+        <div class="dock-icon" data-name="Galeria" onclick="openWindow('gallery')">
+            🖼️
+        </div>
+
+        <div class="dock-icon" data-name="Terminal" onclick="openWindow('terminal')">
+            💻
+        </div>
+
+        <div class="dock-icon" data-name="Nossa História" onclick="openWindow('history')">
+            ❤️
+        </div>
+
+        <div class="dock-icon" data-name="Carta de Amor" onclick="openWindow('letter')">
+            💌
+        </div>
+
+        <div class="dock-icon" data-name="Música" onclick="toggleMusic()">
+            🎵
+        </div>
+
+    </aside>
+
+    <main class="desktop">
+
+    </main>
+
+    <div id="start-menu">
+
+        <div class="user-card">
+            ❤️ Amor da Minha Vida
+        </div>
+
+        <div class="menu-item" onclick="openWindow('explorer')">
+            📁 Arquivos
+        </div>
+
+        <div class="menu-item" onclick="openWindow('gallery')">
+            🖼️ Fotos
+        </div>
+
+        <div class="menu-item" onclick="openWindow('history')">
+            ❤️ Nossa História
+        </div>
+
+        <div class="menu-item" onclick="openWindow('terminal')">
+            💻 Terminal
+        </div>
+
+        <div class="menu-item" onclick="openWindow('letter')">
+            💌 Carta
+        </div>
+
+    </div>
+
+    <!-- EXPLORER -->
+
+    <div class="window" id="explorer">
+
+        <div class="titlebar">
+
+            <span>📁 Explorador de Arquivos</span>
+
+            <div class="actions">
+                <button onclick="minimizeWindow('explorer')">−</button>
+                <button onclick="maximizeWindow('explorer')">□</button>
+                <button onclick="closeWindow('explorer')">✕</button>
+            </div>
+
+        </div>
+
+        <!-- BARRA DE CAMINHO -->
+
+        <div class="file-path">
+            🏠 LoveOS / Memórias
+        </div>
+
+        <!-- PASTAS -->
+
+        <div class="content explorer-content">
+
+            <div class="folder" onclick="openWindow('gallery')">
+                <div class="folder-icon">📁</div>
+                <div class="folder-name">Fotos</div>
+            </div>
+
+            <div class="folder" onclick="openWindow('trips')">
+                <div class="folder-icon">📁</div>
+                <div class="folder-name">Viagens</div>
+            </div>
+
+            <div class="folder" onclick="openWindow('future')">
+
+                <div class="folder-icon">📁</div>
+
+                <div class="folder-name">
+                    Nosso Futuro
+                </div>
+
+            </div>
+
+            <div class="folder" onclick="openWindow('letters')">
+                <div class="folder-icon">📁</div>
+                <div class="folder-name">Cartinhas</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="window" id="letters">
+
+        <div class="titlebar">
+
+            <span>💌 Cartinhas</span>
+
+            <div class="actions">
+                <button onclick="minimizeWindow('letters')">−</button>
+                <button onclick="maximizeWindow('letters')">□</button>
+                <button onclick="closeWindow('letters')">✕</button>
+            </div>
+
+        </div>
+
+        <div class="file-path">
+            🏠 LoveOS / Memórias / Cartinhas
+        </div>
+
+        <div class="content explorer-content">
+
+            <div class="folder" onclick="openWindow('loveletter1')">
+                <div class="folder-icon">💌</div>
+                <div class="folder-name">Por que eu te amo</div>
+            </div>
+
+            <div class="folder" onclick="openWindow('loveletter2')">
+                <div class="folder-icon">💌</div>
+                <div class="folder-name">Quando senti algo por você</div>
+            </div>
+
+            <div class="folder" onclick="openWindow('sadletter')">
+                <div class="folder-icon">💌</div>
+                <div class="folder-name">Para ler quando estiver triste</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PORQUE EU TE AMO  -->
+
+    <div class="window" id="loveletter1">
+
+        <div class="titlebar">
+            <span>💌 Por que eu te amo</span>
+
+            <div class="actions">
+                <button onclick="closeWindow('loveletter1')">✕</button>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <p>
+                Eu te amo porque você trouxe luz para uma fase da minha vida que parecia escura. Eu te amo porque você
+                me incentiva, me apoia e acredita em mim. Eu te amo porque consigo ser eu mesmo quando estou com você.
+                Eu te amo pelas nossas conversas, pelas nossas risadas e pelo jeito que você faz meus dias ficarem
+                melhores sem nem perceber. Você me fez voltar a desenhar, voltar a jogar e voltar a sentir entusiasmo
+                pelas pequenas coisas da vida. Acima de tudo, eu te amo porque você é você.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- QUANDO SENTI ALGO POR VOCÊ -->
+
+    <div class="window" id="loveletter2">
+
+        <div class="titlebar">
+
+            <span>💌 Quando senti algo por você</span>
+
+            <div class="actions">
+                <button onclick="closeWindow('loveletter2')">✕</button>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <p>
+                Eu não sei dizer exatamente o dia ou o momento em que comecei a gostar de você. Acho que foi acontecendo
+                aos poucos, em cada conversa, em cada mensagem e em cada momento que compartilhamos. No início, eu
+                apenas achava você uma garota muito bonita e interessante. Gostava de ver seus stories, descobrir coisas
+                sobre você e encontrar motivos para puxar assunto. Mas, sem perceber, aquilo começou a se transformar em
+                algo maior.
+                <br><br>
+                Eu percebi que sentia algo diferente quando você se tornou a primeira pessoa em quem eu pensava ao
+                acordar e a última antes de dormir. Quando algo engraçado acontecia, a primeira vontade era contar para
+                você. Quando acontecia alguma coisa boa no meu dia, eu queria compartilhar com você. E quando o dia era
+                difícil, conversar com você tornava tudo mais leve.
+                <br><br>
+                Talvez eu tenha percebido de verdade quando tentei não mandar mensagem e simplesmente não consegui. Era
+                como se alguma coisa me puxasse para você. Falar com você fazia parte do meu dia e, aos poucos, se
+                tornou uma das minhas partes favoritas dele.
+                <br><br>
+                Hoje olhando para trás, acho que me apaixonei sem perceber. E sinceramente? Foi uma das melhores coisas
+                que já aconteceram comigo. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- QUANDO ESTIVER TRISTE LEIA ISSO -->
+
+    <div class="window" id="sadletter">
+
+        <div class="titlebar">
+
+            <span>💌 Para ler quando estiver triste</span>
+
+            <div class="actions">
+                <button onclick="minimizeWindow('sadletter')">−</button>
+                <button onclick="maximizeWindow('sadletter')">□</button>
+                <button onclick="closeWindow('sadletter')">✕</button>
+            </div>
+
+        </div>
+
+        <div class="file-path">
+            🏠 LoveOS / Memórias / Cartinhas / Para ler quando estiver triste
+        </div>
+
+        <div class="content">
+
+            <h2>❤️ Ei, leia isso com calma...</h2>
+
+            <br>
+
+            <p>
+                Se você abriu esta carta, imagino que o seu dia não esteja sendo dos melhores. Talvez alguma coisa tenha
+                dado errado, talvez você esteja cansada ou simplesmente esteja passando por um momento difícil. Seja
+                qual for o motivo, eu quero que pare por alguns minutos e lembre de uma coisa muito importante: você é
+                uma pessoa incrível.
+                <br><br>
+                Eu sei que às vezes você pode duvidar de si mesma, mas eu queria que conseguisse se enxergar pelos meus
+                olhos. Você é forte, inteligente, talentosa, esforçada e tem um coração enorme. Você consegue ajudar as
+                pessoas ao seu redor sem nem perceber, e eu sou uma das pessoas que mais foi ajudada por você.
+                <br><br>
+                Você entrou na minha vida e mudou muita coisa. Me devolveu a vontade de desenhar, de jogar, de ler e de
+                voltar a me animar com pequenas coisas do dia a dia. Você me apoia quando eu preciso, acredita em mim
+                quando eu mesmo tenho dúvidas e consegue transformar dias comuns em dias melhores apenas por estar
+                presente.
+                <br><br>
+                Então, se hoje as coisas estiverem difíceis, lembre-se de que nenhum dia ruim define quem você é. Nenhum
+                erro apaga suas qualidades. Nenhum problema diminui o valor que você tem.
+                <br><br>
+                Respire fundo. Descanse um pouco. Beba uma água. E não se cobre tanto. Você não precisa carregar o mundo
+                nas costas o tempo todo.
+                <br><br>
+                E principalmente, lembre-se de que existe alguém aqui torcendo por você, acreditando em você e admirando
+                a pessoa maravilhosa que você é todos os dias.
+                <br><br>
+                Você é muito especial para mim, e eu tenho um orgulho enorme de ter você na minha vida.
+                <br><br>
+                Se estiver triste agora, quero que saiba de uma coisa:
+                <br><br>
+                Você vai ficar bem.
+                <br>
+                Eu acredito em você.
+                <br>
+                E eu te amo muito. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- GALERIA -->
+
+    <div class="window" id="gallery">
+
+        <div class="titlebar">
+
+            <span>🖼️ Galeria</span>
+
+            <div class="actions">
+
+                <button onclick="minimizeWindow('gallery')">−</button>
+                <button onclick="maximizeWindow('gallery')">□</button>
+                <button onclick="closeWindow('gallery')">✕</button>
+
+            </div>
+
+        </div>
+
+        <div class="content gallery">
+
+            <img src="assets/images/foto1.jpg" class="gallery-img">
+            <img src="assets/images/foto2.jpeg" class="gallery-img">
+            <img src="assets/images/foto3.jpeg" class="gallery-img">
+            <img src="assets/images/foto4.jpeg" class="gallery-img">
+            <img src="assets/images/foto5.jpeg" class="gallery-img">
+            <img src="assets/images/foto6.jpeg" class="gallery-img">
+            <img src="assets/images/foto7.jpeg" class="gallery-img">
+            <img src="assets/images/foto8.jpeg" class="gallery-img">
+            <img src="assets/images/foto9.jpeg" class="gallery-img">
+            <img src="assets/images/foto10.jpeg" class="gallery-img">
+            <img src="assets/images/foto11.jpeg" class="gallery-img">
+            <img src="assets/images/foto12.jpeg" class="gallery-img">
+
+        </div>
+
+    </div>
+
+    <!-- HISTORIA -->
+
+    <div class="window" id="history">
+
+        <div class="titlebar">
+
+            <span>❤️ Nossa História</span>
+
+            <div class="actions">
+
+                <button onclick="minimizeWindow('history')">−</button>
+                <button onclick="maximizeWindow('history')">□</button>
+                <button onclick="closeWindow('history')">✕</button>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <h2>Como tudo começou...</h2>
+
+            <p>
+                Nossa história começou de uma forma que eu jamais imaginaria. Tudo começou quando encontrei o perfil
+                dela no Instagram e resolvi segui-la porque achei sua bio muito interessante. Ela é gamer e desenha,
+                duas coisas que eu também gosto muito de fazer. Eu jogo, desenho e, de alguma forma, senti que tínhamos
+                algumas coisas em comum mesmo antes de trocar qualquer palavra.
+
+                O curioso é que o meu perfil praticamente não tinha nada além de uma foto de perfil. Ainda assim, ela me
+                seguiu de volta, algo que nem costuma fazer com frequência. Quando entrei no perfil dela e vi suas
+                fotos, achei ela muito linda e extremamente fofa. Então comecei a admirar ela de longe, sem muita
+                coragem para iniciar uma conversa.
+
+                Algum tempo depois, ela postou uma foto jogando Valorant. Como eu também jogo, fiquei empolgado, mas não
+                falei nada. Então ela publicou outra foto e marcou o duo dela. Confesso que fiquei meio receoso, mas
+                resolvi postar uma foto do meu Valorant nos stories só para ela saber que eu também jogava. Eu sabia que
+                ela era uma das primeiras pessoas a visualizar meus stories, então, de certa forma, aquela publicação
+                era como dizer: "Ei, eu também jogo Valorant." Hoje eu rio quando lembro disso.
+
+                Para minha surpresa, ela me mandou mensagem. E foi aí que tudo realmente começou. Desde o primeiro
+                momento, eu fazia questão de puxar assunto porque não queria perder aquela oportunidade. Eu queria
+                conhecê-la melhor.
+
+                Nessa mesma época aconteceu a minha primeira Champions de Valorant torcendo para a LOUD. O mais
+                engraçado é que ela também estava assistindo. Nós estávamos acompanhando o mesmo campeonato, cada um na
+                sua casa, conversando aos poucos e sem imaginar o quanto nos aproximaríamos.
+
+                Depois de algum tempo, chamei ela para jogar comigo. Mas ela mesma admite que me enrolou bastante antes
+                de aceitar. Naquele início ela não falava muito comigo, mas eu morria de vontade de conversar com ela.
+                Às vezes eu até tentava não mandar mensagem, mas parecia que alguma coisa me puxava de volta. Eu
+                simplesmente queria falar com ela.
+
+                Com o passar dos dias, nossa conversa se tornou parte da rotina. E desde a primeira mensagem, nunca mais
+                paramos de conversar. Amanhã, dia 17/11, completa um mês desde que nos conhecemos, e nesse tempo nós
+                praticamente não ficamos sequer uma hora sem conversar.
+
+                Sem perceber, eu me apaixonei por essa menina maravilhosa.
+
+                Ela trouxe de volta coisas que eu tinha deixado de lado. Voltei a desenhar, voltei a jogar com mais
+                vontade, comecei a ler mais e encontrei motivação para fazer várias coisas. É como se eu estivesse
+                caminhando na escuridão e ela tivesse acendido uma luz no meu caminho.
+
+                Hoje eu acordo pensando nela e vou dormir pensando nela. Tudo o que eu mais quero é que ela faça parte
+                da minha vida. Mesmo morando longe, eu no Nordeste e ela no Sul, nunca deixei a distância diminuir
+                aquilo que sinto. Pelo contrário. Todos os dias eu tenho mais certeza de que vale a pena fazer de tudo
+                para estar ao lado dela.
+
+                Ela mudou o meu mundo de uma forma que talvez nem ela mesma imagine. Ela me apoia, acredita em mim, diz
+                que sou inteligente, me incentiva a continuar e está sempre me motivando a ser melhor. Nos momentos em
+                que duvido de mim mesmo, ela consegue me fazer enxergar minhas qualidades novamente.
+
+                Estou escrevendo esta história para que ela fique registrada desde o início, para que possamos olhar
+                para trás um dia e lembrar de como tudo começou.
+
+                E, acima de tudo, quero deixar registrado uma coisa muito importante:
+
+                Eu amo muito você. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CARTA -->
+
+    <div class="window" id="letter">
+
+        <div class="titlebar">
+
+            <span>💌 Carta de Amor</span>
+
+            <div class="actions">
+
+                <button onclick="minimizeWindow('letter')">−</button>
+                <button onclick="maximizeWindow('letter')">□</button>
+                <button onclick="closeWindow('letter')">✕</button>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <h1>❤️ Para Você</h1>
+
+            <p>
+                Você é a melhor parte dos meus dias.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- VIAGEM -->
+    <div class="window" id="trips">
+
+        <div class="titlebar">
+
+            <span>✈️ Viagens - Gramado</span>
+
+            <div class="actions">
+                <button onclick="minimizeWindow('trips')">−</button>
+                <button onclick="maximizeWindow('trips')">□</button>
+                <button onclick="closeWindow('trips')">✕</button>
+            </div>
+
+        </div>
+
+        <div class="file-path">
+            🏠 LoveOS / Memórias / Viagens / Gramado
+        </div>
+
+        <div class="content gallery">
+
+            <img src="assets/gramado/gramado1.jpg" class="gallery-img">
+            <img src="assets/gramado/gramado2.jpg" class="gallery-img">
+            <img src="assets/gramado/gramado3.jpg" class="gallery-img">
+            <img src="assets/gramado/gramado4.jpg" class="gallery-img">
+
+        </div>
+
+    </div>
+
+    <!-- NOSSO FUTURO -->
+    <div class="window" id="future">
+
+        <div class="titlebar">
+
+            <span>❤️ Nosso Futuro</span>
+
+            <div class="actions">
+                <button onclick="minimizeWindow('future')">−</button>
+                <button onclick="maximizeWindow('future')">□</button>
+                <button onclick="closeWindow('future')">✕</button>
+            </div>
+
+        </div>
+
+        <div class="file-path">
+            🏠 LoveOS / Memórias / Nosso Futuro
+        </div>
+
+        <div class="content">
+
+            <h2>❤️ Nosso Futuro</h2>
+            <br>
+            <p>
+                Desde que você entrou na minha vida, comecei a imaginar um futuro muito mais bonito. Quero poder
+                encontrar você pessoalmente, olhar nos seus olhos e finalmente te dar o abraço que hoje só consigo
+                imaginar. Quero viver momentos simples ao seu lado, caminhar de mãos dadas, assistir ao pôr do sol
+                juntos, rir das nossas besteiras e criar memórias que vamos guardar para sempre. Quero namorar você,
+                conhecer ainda mais cada detalhe do seu jeito, apoiar seus sonhos e estar presente em cada fase da sua
+                vida. Quero viajar com você, descobrir novos lugares, tirar milhares de fotos e transformar cada momento
+                em uma lembrança especial. Quero estar ao seu lado nos dias felizes, mas também nos difíceis, porque
+                amar alguém é escolher permanecer. Acima de tudo, quero construir uma história linda ao seu lado,
+                realizar nossos sonhos juntos e viver uma vida inteira compartilhando amor, companheirismo e felicidade.
+                Você é a pessoa com quem eu quero escrever todos os próximos capítulos da minha vida. ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- TERMINAL -->
+
+    <div class="window terminal-window" id="terminal">
+
+        <div class="titlebar">
+
+            <span>💻 Terminal LoveOS</span>
+
+            <div class="actions">
+
+                <button onclick="minimizeWindow('terminal')">−</button>
+                <button onclick="maximizeWindow('terminal')">□</button>
+                <button onclick="closeWindow('terminal')">✕</button>
+
+            </div>
+
+        </div>
+
+        <div class="terminal-content">
+
+            <div id="terminalOutput">
+
+                LoveOS Terminal v3.0<br>
+                Digite "help"
+
+            </div>
+
+            <input id="terminalInput" type="text" placeholder="Digite um comando...">
+
+        </div>
+
+    </div>
+
+    <audio id="music" loop>
+        <source src="assets/musica.mp3">
+    </audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
